@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Chromium;
+using Chromium.Event;
+using Chromium.Remote;
+using Chromium.Remote.Event;
+using Chromium.WebBrowser;
 
 namespace SuperChromium.Client
 {
@@ -23,17 +28,31 @@ namespace SuperChromium.Client
         public MainWindow()
         {
             InitializeComponent();
-            this.nnn.Click += Nnn_Click;
+
+            this.browser.Click += Browser_Click;
+            
         }
 
-        private void Nnn_Click(object sender, EventArgs e)
+        private void Browser_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Hello world~");
+            this.browser.LoadUrl("http://www.baidu.com");
+
+            CfxWindowInfo windowInfo = new CfxWindowInfo();
+
+            windowInfo.Style = Chromium.WindowStyle.WS_OVERLAPPEDWINDOW | Chromium.WindowStyle.WS_CLIPCHILDREN | Chromium.WindowStyle.WS_CLIPSIBLINGS | Chromium.WindowStyle.WS_VISIBLE;
+            windowInfo.ParentWindow = IntPtr.Zero;
+            windowInfo.WindowName = "Dev Tools";
+            windowInfo.X = 200;
+            windowInfo.Y = 200;
+            windowInfo.Width = 800;
+            windowInfo.Height = 600;
+
+            if (this.browser.Created)
+            {
+               
+                this.browser.BrowserHost.ShowDevTools(windowInfo, new CfxClient(), new CfxBrowserSettings(), null);
+            }
         }
 
-        private void WindowsFormsHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-
-        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<Window x:Class="SuperChromium.Client.MainWindow"
         xmlns:wfi ="clr-namespace:System.Windows.Forms.Integration;assembly=WindowsFormsIntegration"
         xmlns:wf ="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:cw ="clr-namespace:Chromium.WebBrowser;assembly=ChromiumWebBrowser"
         
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,10 +9,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SuperChromium.Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" WindowState="Maximized">
     <Grid>
-        <wfi:WindowsFormsHost>
-            <wf:Button x:Name="nnn" Text="确定" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <wfi:WindowsFormsHost x:Name="browserContainer" Grid.Row="0" Grid.Column="0">
+            <cw:ChromiumWebBrowser x:Name="browser" Width="800" Height="600"  />
         </wfi:WindowsFormsHost>
     </Grid>
 </Window>
