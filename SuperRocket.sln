@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChromiumWebBrowser", "Chrom
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SuperRocket", "SuperRocket", "{C32EF343-E623-43AF-91BA-DCB7B8B1AD26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperRocket.Client", "SuperChromium.Client\SuperRocket.Client.csproj", "{71441450-3535-4596-A1B6-018AFCE508F7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperRocket.Client", "SuperRocket\SuperRocket.Client.csproj", "{71441450-3535-4596-A1B6-018AFCE508F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
