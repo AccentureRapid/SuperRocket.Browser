@@ -28,15 +28,12 @@ namespace SuperChromium.Client
         public MainWindow()
         {
             InitializeComponent();
-
-            this.browser.Click += Browser_Click;
-            
+            this.test.Click += Test_Click;
         }
 
-        private void Browser_Click(object sender, EventArgs e)
+        private void Test_Click(object sender, EventArgs e)
         {
-            this.browser.LoadUrl("http://www.baidu.com");
-
+            Chromium.WebBrowser.ChromiumWebBrowser browser = new ChromiumWebBrowser();
             CfxWindowInfo windowInfo = new CfxWindowInfo();
 
             windowInfo.Style = Chromium.WindowStyle.WS_OVERLAPPEDWINDOW | Chromium.WindowStyle.WS_CLIPCHILDREN | Chromium.WindowStyle.WS_CLIPSIBLINGS | Chromium.WindowStyle.WS_VISIBLE;
@@ -47,12 +44,15 @@ namespace SuperChromium.Client
             windowInfo.Width = 800;
             windowInfo.Height = 600;
 
-            if (this.browser.Created)
+            if (browser.Created)
             {
-               
-                this.browser.BrowserHost.ShowDevTools(windowInfo, new CfxClient(), new CfxBrowserSettings(), null);
+                browser.Dock = System.Windows.Forms.DockStyle.Fill;
+                browser.LoadUrl("http://www.baidu.com");
+                this.browserContainer.Child = browser;
+                // this.browser.BrowserHost.ShowDevTools(windowInfo, new CfxClient(), new CfxBrowserSettings(), null);
             }
         }
 
+      
     }
 }

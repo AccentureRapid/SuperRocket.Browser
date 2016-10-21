@@ -17,8 +17,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <wfi:WindowsFormsHost x:Name="browserContainer" Grid.Row="0" Grid.Column="0">
-            <cw:ChromiumWebBrowser x:Name="browser" Width="800" Height="600"  />
-        </wfi:WindowsFormsHost>
+        <Border BorderBrush="Red" BorderThickness="2" CornerRadius="5">
+            <wfi:WindowsFormsHost x:Name="browserContainer" Grid.Row="0" Grid.Column="0" 
+                              HorizontalAlignment="Left" 
+                              VerticalAlignment="Top"
+                              >
+                <!--<cw:ChromiumWebBrowser x:Name="browser" Width="800" Height="600"   />-->
+            </wfi:WindowsFormsHost>
+           
+        </Border>
+        <Border BorderBrush="Red" BorderThickness="2" CornerRadius="5">
+            <wfi:WindowsFormsHost x:Name="buttonContainer" Grid.Row="0" Grid.Column="0" 
+                              HorizontalAlignment="Left" 
+                              VerticalAlignment="Top"
+                              >
+                <wf:Button x:Name="test" Text="Test"></wf:Button>
+            </wfi:WindowsFormsHost>
+        </Border>
     </Grid>
 </Window>
